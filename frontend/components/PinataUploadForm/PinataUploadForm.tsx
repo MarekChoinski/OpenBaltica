@@ -16,17 +16,12 @@ export interface PinataUploadFormResult {
   image: File;
   name: string;
   description: string;
-  attributes: AttributesEnum;
+  metaAttributes: AttributesEnum;
   attributesValue: number;
 }
 
 export const PinataUploadForm = () => {
-  const {
-    register,
-    control,
-    handleSubmit,
-    formState: { errors, dirtyFields },
-  } = useForm({
+  const { register, control, handleSubmit } = useForm({
     mode: "onBlur",
   });
 
@@ -35,21 +30,21 @@ export const PinataUploadForm = () => {
       !data?.image ||
       !data?.name ||
       !data.description ||
-      !data?.attributes ||
+      !data?.metaAttributes ||
       !data?.attributesValue
     )
       return;
 
-    const response = await uploadFileToIPFS(data.image, "filename");
+    const [_errorPinataImageUrl, pinataImageUrl] = await uploadFileToIPFS(
+      data.image,
+      data.name
+    );
 
-    if (response.success) {
-      const metadata = uploadFormResultToNFTMetadata(
-        (response as any).pinataURL,
-        data
-      );
+    if (pinataImageUrl) {
+      const metadata = uploadFormResultToNFTMetadata(pinataImageUrl, data);
 
-      const metadataResponse = await uploadJSONToIPFS(metadata);
-      console.log("metadataResponse", metadataResponse);
+      const [_errorPinataUrl, pinataUrl] = await uploadJSONToIPFS(metadata);
+      console.log("metadataResponse", pinataUrl);
 
       // TODO: OB-8 here should mint NFT
     }
@@ -76,7 +71,7 @@ export const PinataUploadForm = () => {
       <label>
         Attributes:
         <div>
-          <select {...register("attributes")}>
+          <select {...register("metaAttributes")}>
             <option value="grapefruit">Grapefruit</option>
             <option value="cuteness">Cuteness</option>
             <option value="dancing">Dancing</option>
