@@ -7,11 +7,14 @@
   },
   "dependencies": {
     "@moralisweb3/next": "^2.22.2",
+    "axios": "^1.4.0",
     "moralis": "^2.22.2",
     "next": "latest",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-hook-form": "^7.45.0",
     "react-moralis": "^1.4.2",
+    "sass": "^1.63.6",
     "web3uikit": "^1.0.4"
   },
   "devDependencies": {

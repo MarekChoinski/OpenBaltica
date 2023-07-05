@@ -3,9 +3,6 @@ import { MoralisProvider } from "react-moralis";
 import Head from "next/head";
 import { ConnectButton, NotificationProvider } from "web3uikit";
 
-const APP_ID = process.env.NEXT_PUBLIC_APP_ID;
-const SERVER_URL = process.env.NEXT_PUBLIC_SERVER_URL;
-
 function MyApp({ Component, pageProps }) {
   return (
     <div>
@@ -14,7 +11,10 @@ function MyApp({ Component, pageProps }) {
         <meta name="description" content="NFT Marketplace" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <MoralisProvider appId={APP_ID} serverUrl={SERVER_URL}>
+      <MoralisProvider
+        initializeOnMount={false}
+        //  appId={process.env.NEXT_PUBLIC_APP_ID} serverUrl={process.env.NEXT_PUBLIC_SERVER_URL}
+      >
         <NotificationProvider>
           {/* <Header /> */}
           <ConnectButton moralisAuth={false} />

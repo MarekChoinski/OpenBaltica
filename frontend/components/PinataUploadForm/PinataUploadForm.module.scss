@@ -1,0 +1,19 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 800px;
+}
+
+.name,
+.textarea {
+  display: flex;
+  flex-direction: column;
+
+  span {
+    display: flex;
+  }
+}
+
+.submit {
+  margin-top: 8px;
+}
