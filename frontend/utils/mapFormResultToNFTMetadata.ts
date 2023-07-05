@@ -10,7 +10,7 @@ export const uploadFormResultToNFTMetadata = (
     image: url,
     attributes: [
       {
-        traits_type: data.attributes,
+        traits_type: data.metaAttributes,
         value: data.attributesValue,
       },
     ],
