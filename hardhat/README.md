@@ -18,6 +18,16 @@ npx hardhat run scripts/deploy.ts --network localhost
 
 Could be also checked on Ganache
 
+## deploy NFT
+
+`yarn hardhat deploy --network sepolia`
+mint:
+`yarn hardhat deploy --tags mintBasic --network sepolia`
+
+you can see transactions here:
+`https://sepolia.etherscan.io/`
+on your wallet hash
+
 # TODO
 
 https://hardhat.org/hardhat-runner/docs/guides/migrating-from-hardhat-waffle
