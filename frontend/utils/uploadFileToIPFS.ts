@@ -35,6 +35,7 @@ export const uploadFileToIPFS = async (
       }
     );
 
+    // TODO OB-6: should be ipfs
     return [
       null,
       `https://gateway.pinata.cloud/ipfs/${response.data.IpfsHash}`,

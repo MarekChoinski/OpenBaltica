@@ -18,6 +18,10 @@ npx hardhat run scripts/deploy.ts --network localhost
 
 Could be also checked on Ganache
 
+## compile contracts
+
+`yarn hardhat compile`
+
 ## deploy NFT
 
 `yarn hardhat deploy --network sepolia`
@@ -28,6 +32,20 @@ you can see transactions here:
 `https://sepolia.etherscan.io/`
 on your wallet hash
 
+## update frontend ABI contracts
+
+these are used on frontend
+(TODO: network required?)
+`yarn hardhat deploy --tags frontend --network sepolia`
+
 # TODO
 
 https://hardhat.org/hardhat-runner/docs/guides/migrating-from-hardhat-waffle
+
+# Helpful
+
+Etherscan for sepolia:
+https://sepolia.etherscan.io/
+
+Error codes returned by Moralis SDK:
+https://docs.moralis.io/web3-data-api/sdk-error-handling

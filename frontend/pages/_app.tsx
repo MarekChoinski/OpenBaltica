@@ -1,7 +1,9 @@
 import "../styles/globals.css";
-import { MoralisProvider } from "react-moralis";
+import { MoralisProvider, useMoralis } from "react-moralis";
 import Head from "next/head";
 import { ConnectButton, NotificationProvider } from "web3uikit";
+import { useEffect } from "react";
+import Moralis from "moralis";
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -12,8 +14,9 @@ function MyApp({ Component, pageProps }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <MoralisProvider
-        initializeOnMount={false}
-        //  appId={process.env.NEXT_PUBLIC_APP_ID} serverUrl={process.env.NEXT_PUBLIC_SERVER_URL}
+        initializeOnMount={true}
+        appId={process.env.NEXT_PUBLIC_APP_ID}
+        serverUrl={process.env.NEXT_PUBLIC_SERVER_URL}
       >
         <NotificationProvider>
           {/* <Header /> */}
